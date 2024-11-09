@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Atendimento>
+
+@{
+    ViewData["Title"] = "Atendimentos";
+}
+
+<div class="container mt-5">
+    <h1 class="mb-4 text-primary">Atendimentos</h1>
+    <p>
+        <a asp-action="Create" class="btn btn-outline-primary mb-3">Criar novo atendimento</a>
+    </p>
+    <table class="table table-hover">
+        <thead class="bg-light text-primary">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.AtendimentoId)Atendimento</th>
+                <th>@Html.DisplayNameFor(model => model.UsuarioId)</th>
+                <th>@Html.DisplayNameFor(model => model.DentistaNome)</th>
+                <th>@Html.DisplayNameFor(model => model.ClinicaNome)</th>
+                <th>@Html.DisplayNameFor(model => model.DataAtendimento)</th>
+                <th>@Html.DisplayNameFor(model => model.DescricaoProcedimento)</th>
+                <th>@Html.DisplayNameFor(model => model.Custo)</th>
+                <th>@Html.DisplayNameFor(model => model.DataRegistro)</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="table-light">
+                    <td>@Html.DisplayFor(modelItem => item.AtendimentoId)</td>
+                    <td>@Html.DisplayFor(modelItem => item.UsuarioId)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DentistaNome)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ClinicaNome)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DataAtendimento)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DescricaoProcedimento)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Custo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DataRegistro)</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.AtendimentoId" class="btn btn-outline-info btn-sm">Editar</a>
+                        <a asp-action="Delete" asp-route-id="@item.AtendimentoId" class="btn btn-outline-danger btn-sm">Excluir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
